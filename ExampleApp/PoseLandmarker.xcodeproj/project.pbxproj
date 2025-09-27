@@ -183,7 +183,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF49F9172BA81E700075959B /* Build configuration list for PBXNativeTarget "PoseLandmarker" */;
 			buildPhases = (
-				59BAC2C22E881822002FC81B /* Download Models */,
+				59BAC2C22E881822002FC81B /* Download models */,
 				BF49F8E92BA81E6E0075959B /* Sources */,
 				BF49F8EA2BA81E6E0075959B /* Frameworks */,
 				BF49F8EB2BA81E6E0075959B /* Resources */,
@@ -281,8 +281,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		59BAC2C22E881822002FC81B /* Download Models */ = {
+		59BAC2C22E881822002FC81B /* Download models */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -290,14 +291,14 @@
 			);
 			inputPaths = (
 			);
-			name = "Download Models";
+			name = "Download models";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$SRCROOT/download_models.sh\"\n";
+			shellScript = "\"$SRCROOT/RunScripts/download_models.sh\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
