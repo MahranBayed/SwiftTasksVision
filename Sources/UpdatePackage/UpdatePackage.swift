@@ -70,11 +70,6 @@ struct UpdatePackage {
                 of: URL(fileURLWithPath: mediaPipeTasksCommonXCFrameworkURL.path),
                 to: URL(fileURLWithPath: temporaryProjectCommonFrameworkURL.path)
             )
-        try fileManager
-            .copyContents(
-                of: URL(fileURLWithPath: mediaPipeTasksCommonXCFrameworkURL.path),
-                to: URL(fileURLWithPath: dependenciesTasksCommonFrameworkURL.path)
-            )
     }
 
     private static func copyMediaPipeTasksVisionXCFramework() throws {
