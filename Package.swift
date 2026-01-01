@@ -5,7 +5,7 @@ import Foundation
 let package = Package(
     name: "SwiftTasksVision",
     platforms: [
-        .iOS(.v12)
+        .iOS(.v13)
     ],
     products: [
         .library(
