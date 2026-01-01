@@ -23,7 +23,6 @@ struct UpdatePackage {
         try buildCommonGraphXCFramework()
         try copyCommonGraphXCFramework()
         try removeTemporaryFiles()
-        try updateTaskModels()
     }
     
     private static func downloadPods() {
@@ -69,11 +68,6 @@ struct UpdatePackage {
             .copyContents(
                 of: URL(fileURLWithPath: mediaPipeTasksCommonXCFrameworkURL.path),
                 to: URL(fileURLWithPath: temporaryProjectCommonFrameworkURL.path)
-            )
-        try fileManager
-            .copyContents(
-                of: URL(fileURLWithPath: mediaPipeTasksCommonXCFrameworkURL.path),
-                to: URL(fileURLWithPath: dependenciesTasksCommonFrameworkURL.path)
             )
     }
 
@@ -198,32 +192,6 @@ struct UpdatePackage {
         try fileManager.removeItem(at: URL(fileURLWithPath: commonGraphStaticLibiOS.path))
         try fileManager.removeItem(at: URL(fileURLWithPath: commonGraphStaticLibSim.path))
         try fileManager.removeItem(at: URL(fileURLWithPath: mediaPipeTasksCommonXCFramework.path))
-    }
-    
-    private static func updateTaskModels() throws {
-        let exampleAppRoot = Definitions.packageRoot
-            .appending(path: "ExampleApp")
-            
-        let exampleAppProjectRoot = exampleAppRoot
-            .appending(path: "PoseLandmarker")
-        
-        let lightModelTaskModelFile = exampleAppProjectRoot
-            .appending(path: "pose_landmarker_full.task")
-        let heavyModelTaskModelFile = exampleAppProjectRoot
-            .appending(path: "pose_landmarker_heavy.task")
-        let liteModelTaskModelFile = exampleAppProjectRoot
-            .appending(path: "pose_landmarker_lite.task")
-        
-        try? fileManager.removeItem(at: URL(fileURLWithPath: lightModelTaskModelFile.path))
-        try? fileManager.removeItem(at: URL(fileURLWithPath: heavyModelTaskModelFile.path))
-        try? fileManager.removeItem(at: URL(fileURLWithPath: liteModelTaskModelFile.path))
-        
-        Terminal.runCommand(
-            """
-            cd \(exampleAppRoot);
-            ./download_models.sh;
-            """
-        )
     }
 }
 

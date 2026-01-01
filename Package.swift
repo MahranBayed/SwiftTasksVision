@@ -42,10 +42,6 @@ let package = Package(
             name: "MediaPipeCommonGraphLibraries",
             path: "Dependencies/MediaPipeCommonGraphLibraries.xcframework"
         ),
-        .binaryTarget(
-            name: "MediaPipeTasksCommon",
-            path: "Dependencies/MediaPipeTasksCommon.xcframework"
-        ),
         .executableTarget(
             name: "UpdatePackage",
             resources: [
